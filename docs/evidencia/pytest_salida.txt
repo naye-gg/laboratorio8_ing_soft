@@ -1,0 +1,96 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.11, pytest-9.0.3, pluggy-1.6.0 -- /home/nayeliguerrero/Descargas/lab8_ingsoft/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/nayeliguerrero/Descargas/lab8_ingsoft
+configfile: pyproject.toml
+testpaths: tests
+plugins: cov-7.1.0
+collecting ... collected 54 items
+
+tests/test_apps.py::test_parse_command_construye_comando PASSED          [  1%]
+tests/test_apps.py::test_build_handler_procesa_evento PASSED             [  3%]
+tests/test_infrastructure.py::TestInMemoryRepository::test_get_crea_cuenta_si_no_existe PASSED [  5%]
+tests/test_infrastructure.py::TestInMemoryRepository::test_save_persiste_estado PASSED [  7%]
+tests/test_infrastructure.py::TestRabbitMQConfig::test_valores_por_defecto PASSED [  9%]
+tests/test_infrastructure.py::TestRabbitMQConfig::test_lee_variables_de_entorno PASSED [ 11%]
+tests/test_infrastructure.py::TestRabbitMQConfig::test_password_no_se_expone_en_repr PASSED [ 12%]
+tests/test_infrastructure.py::TestRabbitMQPublisher::test_declara_colas_al_construirse PASSED [ 14%]
+tests/test_infrastructure.py::TestRabbitMQPublisher::test_publica_dinner_en_cola_principal PASSED [ 16%]
+tests/test_infrastructure.py::TestRabbitMQPublisher::test_publica_reward_en_cola_de_notificaciones PASSED [ 18%]
+tests/test_infrastructure.py::TestRabbitMQPublisher::test_una_sola_cola_no_declara_duplicado PASSED [ 20%]
+tests/test_infrastructure.py::TestRabbitMQConsumer::test_handle_message_valido_invoca_handler PASSED [ 22%]
+tests/test_infrastructure.py::TestRabbitMQConsumer::test_handle_message_invalido_se_descarta PASSED [ 24%]
+tests/test_model.py::TestDinner::test_cena_valida PASSED                 [ 25%]
+tests/test_model.py::TestDinner::test_rechaza_monto_cero PASSED          [ 27%]
+tests/test_model.py::TestReward::test_rechaza_puntos_negativos PASSED    [ 29%]
+tests/test_model.py::TestRewardAccount::test_apply_acumula_puntos_y_cashback PASSED [ 31%]
+tests/test_model.py::TestRewardAccount::test_snapshot_es_copia_independiente PASSED [ 33%]
+tests/test_process_reward.py::test_calcula_y_acredita_recompensa PASSED  [ 35%]
+tests/test_process_reward.py::test_acumula_en_cenas_sucesivas PASSED     [ 37%]
+tests/test_process_reward.py::test_publica_evento_de_notificacion_si_hay_publisher PASSED [ 38%]
+tests/test_process_reward.py::test_sin_publisher_no_falla PASSED         [ 40%]
+tests/test_register_dinner.py::test_publica_evento_dinner_registered PASSED [ 42%]
+tests/test_register_dinner.py::test_rechaza_comando_invalido_y_no_publica PASSED [ 44%]
+tests/test_reward_policy.py::TestRewardPolicy::test_calculo_estandar PASSED [ 46%]
+tests/test_reward_policy.py::TestRewardPolicy::test_aplica_multiplicador_premium_en_umbral PASSED [ 48%]
+tests/test_reward_policy.py::TestRewardPolicy::test_no_aplica_premium_bajo_umbral PASSED [ 50%]
+tests/test_reward_policy.py::TestRewardPolicy::test_politica_personalizada PASSED [ 51%]
+tests/test_reward_policy.py::TestRewardPolicy::test_rechaza_configuracion_invalida[kwargs0] PASSED [ 53%]
+tests/test_reward_policy.py::TestRewardPolicy::test_rechaza_configuracion_invalida[kwargs1] PASSED [ 55%]
+tests/test_reward_policy.py::TestRewardPolicy::test_rechaza_configuracion_invalida[kwargs2] PASSED [ 57%]
+tests/test_serialization.py::test_dinner_registered_round_trip PASSED    [ 59%]
+tests/test_serialization.py::test_reward_processed_enmascara_tarjeta PASSED [ 61%]
+tests/test_serialization.py::test_mensajes_invalidos_lanzan_serialization_error[no es json] PASSED [ 62%]
+tests/test_serialization.py::test_mensajes_invalidos_lanzan_serialization_error[[1, 2, 3]] PASSED [ 64%]
+tests/test_serialization.py::test_mensajes_invalidos_lanzan_serialization_error[{"card": "4111111111111111"}] PASSED [ 66%]
+tests/test_serialization.py::test_mensajes_invalidos_lanzan_serialization_error[{"card": "x", "restaurant": "R", "amount": "10", "occurred_at": "2026-05-30T00:00:00"}] PASSED [ 68%]
+tests/test_value_objects.py::TestMoney::test_normaliza_a_dos_decimales PASSED [ 70%]
+tests/test_value_objects.py::TestMoney::test_of_desde_float_evita_error_binario PASSED [ 72%]
+tests/test_value_objects.py::TestMoney::test_of_desde_entero_y_string PASSED [ 74%]
+tests/test_value_objects.py::TestMoney::test_units_trunca_parte_entera PASSED [ 75%]
+tests/test_value_objects.py::TestMoney::test_multiplicacion PASSED       [ 77%]
+tests/test_value_objects.py::TestMoney::test_str_formatea_dos_decimales PASSED [ 79%]
+tests/test_value_objects.py::TestMoney::test_rechaza_negativo PASSED     [ 81%]
+tests/test_value_objects.py::TestMoney::test_rechaza_valor_invalido PASSED [ 83%]
+tests/test_value_objects.py::TestCardNumber::test_acepta_y_limpia_separadores PASSED [ 85%]
+tests/test_value_objects.py::TestCardNumber::test_enmascara_para_seguridad PASSED [ 87%]
+tests/test_value_objects.py::TestCardNumber::test_rechaza_longitud_o_formato_invalido[123] PASSED [ 88%]
+tests/test_value_objects.py::TestCardNumber::test_rechaza_longitud_o_formato_invalido[12345678901234567890] PASSED [ 90%]
+tests/test_value_objects.py::TestCardNumber::test_rechaza_longitud_o_formato_invalido[abcd] PASSED [ 92%]
+tests/test_value_objects.py::TestRestaurantCode::test_normaliza_a_mayusculas PASSED [ 94%]
+tests/test_value_objects.py::TestRestaurantCode::test_rechaza_vacio PASSED [ 96%]
+tests/test_value_objects.py::TestRestaurantCode::test_rechaza_demasiado_largo PASSED [ 98%]
+tests/test_value_objects.py::TestRestaurantCode::test_str PASSED         [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.13.11-final-0 _______________
+
+Name                                                                            Stmts   Miss Branch BrPart  Cover   Missing
+---------------------------------------------------------------------------------------------------------------------------
+restaurant_rewards/__init__.py                                                      1      0      0      0   100%
+restaurant_rewards/application/__init__.py                                          0      0      0      0   100%
+restaurant_rewards/application/process_reward.py                                   26      0      2      0   100%
+restaurant_rewards/application/register_dinner.py                                  21      0      0      0   100%
+restaurant_rewards/apps/__init__.py                                                 0      0      0      0   100%
+restaurant_rewards/apps/consumer_app.py                                            15      0      0      0   100%
+restaurant_rewards/apps/producer_app.py                                            18      0      0      0   100%
+restaurant_rewards/domain/__init__.py                                               0      0      0      0   100%
+restaurant_rewards/domain/events.py                                                21      0      0      0   100%
+restaurant_rewards/domain/model.py                                                 31      0      4      0   100%
+restaurant_rewards/domain/ports.py                                                 16      0      0      0   100%
+restaurant_rewards/domain/reward_policy.py                                         24      0      6      0   100%
+restaurant_rewards/domain/value_objects.py                                         54      0     12      0   100%
+restaurant_rewards/infrastructure/__init__.py                                       0      0      0      0   100%
+restaurant_rewards/infrastructure/config.py                                        16      0      0      0   100%
+restaurant_rewards/infrastructure/messaging/__init__.py                             0      0      0      0   100%
+restaurant_rewards/infrastructure/messaging/connection.py                           2      0      0      0   100%
+restaurant_rewards/infrastructure/messaging/rabbitmq_consumer.py                   17      0      0      0   100%
+restaurant_rewards/infrastructure/messaging/rabbitmq_publisher.py                  20      0      4      0   100%
+restaurant_rewards/infrastructure/persistence/__init__.py                           0      0      0      0   100%
+restaurant_rewards/infrastructure/persistence/in_memory_account_repository.py      17      0      2      0   100%
+restaurant_rewards/infrastructure/serialization.py                                 27      0      2      0   100%
+---------------------------------------------------------------------------------------------------------------------------
+TOTAL                                                                             326      0     32      0   100%
+Coverage HTML written to dir docs/evidencia/cobertura_html
+Coverage XML written to file coverage.xml
+============================== 54 passed in 0.69s ==============================

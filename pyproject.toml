@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "restaurant-rewards"
+version = "1.0.0"
+description = "Programa de recompensas de restaurantes (Arquitectura Hexagonal + EDA)"
+requires-python = ">=3.10"
+dependencies = ["pika>=1.3"]
+
+[tool.setuptools.packages.find]
+include = ["restaurant_rewards*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--cov=restaurant_rewards --cov-report=term-missing --cov-report=xml"
+
+[tool.coverage.run]
+branch = true
+source = ["restaurant_rewards"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    # Stubs de metodos abstractos en interfaces Protocol (sin logica ejecutable)
+    '^\s*\.\.\.\s*$',
+]

@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Variables de entorno con secretos (el .env.example si se versiona)
+.env
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Pruebas y cobertura
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Sonar
+.scannerwork/
+
+# Editores / SO
+.idea/
+.vscode/
+.DS_Store
+
+# Material del curso (no es parte del codigo fuente)
+*.pdf
