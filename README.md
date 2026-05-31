@@ -1,5 +1,7 @@
 # Programa de Recompensas de Restaurantes
 
+[![Quality Gate Status](https://sonarqube.ingsoftware.lat/api/project_badges/measure?project=Nayeli_Guerrero_t1&metric=alert_status&token=sqb_f0bb5e2e43df596f4af25b266e875927ab7464f6)](https://sonarqube.ingsoftware.lat/dashboard?id=Nayeli_Guerrero_t1)
+
 > CS3081 - Ingeniería de Software · Tarea 8 — Buen diseño: Cohesión y Acoplamiento
 
 Sistema de fidelización que convierte el consumo en restaurantes afiliados en
