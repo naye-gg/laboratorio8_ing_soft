@@ -16,7 +16,7 @@ from docx.shared import Inches, Pt, RGBColor
 
 DOCS = Path(__file__).resolve().parent
 IMG_W = Inches(6.3)  # ancho util de pagina carta con margenes por defecto
-REPO_URL = "https://github.com/naye-gg/Laboratorio8_ingsoft"
+REPO_URL = "https://github.com/naye-gg/laboratorio8_ing_soft"
 SONAR_URL = "https://sonarqube.ingsoftware.lat/dashboard?id=Nayeli_Guerrero_t1"
 
 
